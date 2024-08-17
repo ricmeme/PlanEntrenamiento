@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración - Plan de Entrenamiento</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Panel de Administración</h1>
+
+    <form id="training-form">
+        <label for="day">Día de la Semana:</label>
+        <select id="day" name="day">
+            <option value="Lunes">Lunes</option>
+            <option value="Martes">Martes</option>
+            <option value="Miércoles">Miércoles</option>
+            <option value="Jueves">Jueves</option>
+            <option value="Viernes">Viernes</option>
+            <option value="Sábado">Sábado</option>
+            <option value="Domingo">Domingo</option>
+        </select>
+
+        <label for="session">Sesión:</label>
+        <input type="text" id="session" name="session" placeholder="Ejemplo: Después de Crossfit">
+
+        <label for="exercise1">Ejercicio 1:</label>
+        <textarea id="exercise1" name="exercise1" placeholder="Descripción del ejercicio 1"></textarea>
+
+        <label for="exercise2">Ejercicio 2:</label>
+        <textarea id="exercise2" name="exercise2" placeholder="Descripción del ejercicio 2"></textarea>
+
+        <label for="exercise3">Ejercicio 3:</label>
+        <textarea id="exercise3" name="exercise3" placeholder="Descripción del ejercicio 3"></textarea>
+
+        <button type="submit">Guardar Entrenamiento</button>
+    </form>
+
+    <script src="admin.js"></script>
+</body>
+</html>

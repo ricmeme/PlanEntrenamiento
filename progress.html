@@ -1,38 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Progreso</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Progreso de Entrenamiento</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <h1>Registro de Progreso</h1>
-
-    <form id="progress-form">
-        <label for="day">Día de la Semana:</label>
-        <select id="day" name="day">
-            <option value="Lunes">Lunes</option>
-            <option value="Martes">Martes</option>
-            <option value="Miércoles">Miércoles</option>
-            <option value="Jueves">Jueves</option>
-            <option value="Viernes">Viernes</option>
-            <option value="Sábado">Sábado</option>
-            <option value="Domingo">Domingo</option>
-        </select>
-
-        <label for="distance">Distancia (km):</label>
-        <input type="number" id="distance" name="distance">
-
-        <label for="time">Tiempo (minutos):</label>
-        <input type="number" id="time" name="time">
-
-        <button type="submit">Guardar Progreso</button>
-    </form>
+    <h1>Progreso de Entrenamiento</h1>
 
     <h2>Historial de Progreso</h2>
     <div id="progress-log"></div>
 
-    <script src="progress.js"></script>
+    <h2>Progreso Gráfico</h2>
+    <canvas id="progressChart"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/progress.js"></script>
 </body>
 </html>

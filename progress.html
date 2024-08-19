@@ -1,21 +1,74 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Progreso de Entrenamiento</title>
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-    <h1>Progreso de Entrenamiento</h1>
+document.getElementById('progress-form').addEventListener('submit', function(e) {
+    e.preventDefault();
 
-    <h2>Historial de Progreso</h2>
-    <div id="progress-log"></div>
+    const day = document.getElementById('day').value.toLowerCase();
+    const distance = document.getElementById('distance').value;
+    const time = document.getElementById('time').value;
 
-    <h2>Progreso Gráfico</h2>
-    <canvas id="progressChart"></canvas>
+    let progressData = JSON.parse(localStorage.getItem('progressData')) || [];
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="js/progress.js"></script>
-</body>
-</html>
+    progressData.push({
+        day,
+        distance,
+        time,
+        date: new Date().toLocaleDateString()
+    });
+
+    localStorage.setItem('progressData', JSON.stringify(progressData));
+
+    alert('Progreso guardado correctamente');
+    renderProgressLog();
+    renderProgressChart();
+});
+
+function renderProgressLog() {
+    const progressLog = document.getElementById('progress-log');
+    progressLog.innerHTML = '';
+
+    let progressData = JSON.parse(localStorage.getItem('progressData')) || [];
+
+    progressData.forEach(entry => {
+        let entryElement = document.createElement('div');
+        entryElement.classList.add('progress-entry');
+
+        entryElement.innerHTML = `
+            <p><strong>${entry.date}</strong> - ${entry.day.charAt(0).toUpperCase() + entry.day.slice(1)}: ${entry.distance} km en ${entry.time} minutos.</p>
+        `;
+
+        progressLog.appendChild(entryElement);
+    });
+}
+
+function renderProgressChart() {
+    let progressData = JSON.parse(localStorage.getItem('progressData')) || [];
+    let dates = progressData.map(entry => entry.date);
+    let times = progressData.map(entry => entry.time);
+
+    const ctx = document.getElementById('progressChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: dates,
+            datasets: [{
+                label: 'Tiempo (minutos)',
+                data: times,
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 2,
+                fill: false
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}
+
+// Inicializar el historial de progreso y gráfico al cargar la página
+window.onload = () => {
+    renderProgressLog();
+    renderProgressChart();
+};

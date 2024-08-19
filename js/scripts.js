@@ -1,68 +1,68 @@
-window.onload = () => {
+document.addEventListener('DOMContentLoaded', () => {
     const trainingPlan = {
         lunes: {
             session: "Después de CrossFit",
             exercises: [
-                "1. Carrera continua a ritmo moderado durante 30 minutos.",
-                "2. Series de 5x200m a ritmo rápido, con 2 minutos de descanso entre series.",
-                "3. Ejercicios de fortalecimiento para el tren inferior (sentadillas, lunges)."
+                "Carrera continua a ritmo moderado durante 30 minutos.",
+                "Series de 5x200m a ritmo rápido, con 2 minutos de descanso entre series.",
+                "Ejercicios de fortalecimiento para el tren inferior (sentadillas, lunges)."
             ],
             videos: [
-                "https://example.com/video1",
-                "https://example.com/video2",
-                "https://example.com/video3"
+                "https://www.youtube.com/watch?v=6vQpW9XRiyM", // Carrera continua
+                "https://www.youtube.com/watch?v=2WdYt9VkVek", // Series 200m
+                "https://www.youtube.com/watch?v=1P6obRizj_c"  // Fortalecimiento tren inferior
             ]
         },
         martes: {
             session: "Después de CrossFit",
             exercises: [
-                "1. Carrera continua suave de 20 minutos.",
-                "2. 4x400m a ritmo de carrera, con 2 minutos de descanso.",
-                "3. Ejercicios preventivos para lesiones (estiramientos específicos)."
+                "Carrera continua suave de 20 minutos.",
+                "4x400m a ritmo de carrera, con 2 minutos de descanso.",
+                "Ejercicios preventivos para lesiones (estiramientos específicos)."
             ],
             videos: [
-                "https://example.com/video4",
-                "https://example.com/video5",
-                "https://example.com/video6"
+                "https://www.youtube.com/watch?v=VoC38_NAzeY", // Carrera suave
+                "https://www.youtube.com/watch?v=rGyoTCKUI3k", // Series 400m
+                "https://www.youtube.com/watch?v=L6CMfWCRZ0s"  // Estiramientos preventivos
             ]
         },
         miércoles: {
             session: "Después de CrossFit",
             exercises: [
-                "1. Fartlek de 30 minutos, alternando entre 2 minutos rápidos y 1 minuto suave.",
-                "2. Ejercicios de movilidad y fortalecimiento del core.",
-                "3. Estiramientos enfocados en la recuperación."
+                "Fartlek de 30 minutos, alternando entre 2 minutos rápidos y 1 minuto suave.",
+                "Ejercicios de movilidad y fortalecimiento del core.",
+                "Estiramientos enfocados en la recuperación."
             ],
             videos: [
-                "https://example.com/video7",
-                "https://example.com/video8",
-                "https://example.com/video9"
+                "https://www.youtube.com/watch?v=3wXnpkJwE5E", // Fartlek
+                "https://www.youtube.com/watch?v=BOjmgM_8-5Y", // Movilidad y core
+                "https://www.youtube.com/watch?v=8qE8GZn9L5Y"  // Estiramientos recuperación
             ]
         },
         viernes: {
             session: "Después de CrossFit",
             exercises: [
-                "1. Carrera continua moderada de 40 minutos.",
-                "2. Series de 3x800m a ritmo de carrera, con 3 minutos de descanso.",
-                "3. Ejercicios de fortalecimiento para el tren superior (push-ups, pull-ups)."
+                "Carrera continua moderada de 40 minutos.",
+                "Series de 3x800m a ritmo de carrera, con 3 minutos de descanso.",
+                "Ejercicios de fortalecimiento para el tren superior (push-ups, pull-ups)."
             ],
             videos: [
-                "https://example.com/video10",
-                "https://example.com/video11",
-                "https://example.com/video12"
+                "https://www.youtube.com/watch?v=kTJAXcr2V6k", // Carrera continua
+                "https://www.youtube.com/watch?v=lvz6ZOfhbhE", // Series 800m
+                "https://www.youtube.com/watch?v=IODxDxX7oi4"  // Fortalecimiento tren superior
             ]
         },
         sábado: {
             session: "Entre 10:00 y 11:00 AM",
             exercises: [
-                "1. Rodaje largo de 60 minutos a ritmo constante.",
-                "2. Ejercicios de técnica de carrera (drills).",
-                "3. Estiramientos y relajación muscular."
+                "Rodaje largo de 60 minutos a ritmo constante.",
+                "Ejercicios de técnica de carrera (drills).",
+                "Estiramientos y relajación muscular."
             ],
             videos: [
-                "https://example.com/video13",
-                "https://example.com/video14",
-                "https://example.com/video15"
+                "https://www.youtube.com/watch?v=GgblUdc6Vw8", // Rodaje largo
+                "https://www.youtube.com/watch?v=R1kaXgI-AJ4", // Técnica de carrera
+                "https://www.youtube.com/watch?v=4x5bhmbnzOI"  // Estiramientos y relajación
             ]
         }
     };
@@ -80,7 +80,7 @@ window.onload = () => {
 
         dayPlan.exercises.forEach((exercise, index) => {
             let exerciseElement = document.createElement('p');
-            exerciseElement.textContent = `Ejercicio ${index + 1}: ${exercise}`;
+            exerciseElement.textContent = exercise;
             dayElement.appendChild(exerciseElement);
 
             let videoElement = document.createElement('a');
@@ -95,7 +95,7 @@ window.onload = () => {
 
     notifyUser("¡No olvides revisar tu plan de entrenamiento para hoy!");
     renderComments();
-};
+});
 
 function notifyUser(message) {
     if (Notification.permission === 'granted') {

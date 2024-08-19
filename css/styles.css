@@ -1,51 +1,85 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
     background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
 }
 
-h1, h2 {
-    color: #333;
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #444;
+}
+
+header {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
 }
 
 #training-plan {
-    margin-bottom: 20px;
-}
-
-.session {
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 10px;
+    max-width: 800px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.session h3 {
-    margin-top: 0;
-    color: #007bff;
+#training-plan div {
+    margin-bottom: 15px;
 }
 
-textarea {
+#comment-form {
+    max-width: 800px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#comment-form textarea {
     width: 100%;
+    height: 100px;
     padding: 10px;
     margin-bottom: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: none;
 }
 
-button {
-    background-color: #007bff;
+#comment-form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #5cb85c;
     color: #fff;
-    padding: 10px 15px;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #0056b3;
+#comment-form button:hover {
+    background: #4cae4c;
 }
 
 #comment-section {
-    margin-top: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#progress-chart {
+    max-width: 800px;
+    margin: 20px auto;
 }
